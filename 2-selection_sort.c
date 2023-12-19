@@ -1,26 +1,24 @@
 #include "sort.h"
 
 /**
- * selection_sort - Implementation of selection Sort Algrithme
- * @array: Array to sort type int *
- * @size: The Size of The Given Array
- *
- * Return: (Void) Sorted Array
+ * selection_sort - Selection Sort Algrithm
+ * @array: Array to be sort
+ * @size: size of Array
  */
 void selection_sort(int *array, size_t size)
 {
-	int i;
-	int min, tmp;
+	int idx;
+	int smaller_value, temp;
 
-	for (i = 0; i < (int)size; i++)
+	for (idx = 0; idx < (int)size; idx++)
 	{
-		min = locate_min(array, i, size);
-		if (min != -1)
+		smaller_value = getMin(array, idx, size);
+		if (smaller_value != -2)
 		{
-			tmp = array[i];
-			array[i] = array[min];
-			array[min] = tmp;
-			print_array(array, size);
+			temp = array[idx];
+			array[idx] = array[smaller_value];
+			array[smaller_value] = temp;
+			prntArray(array, size);
 		}
 	}
 }

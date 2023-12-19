@@ -1,5 +1,4 @@
 #include "sort.h"
-
 /**
  * getMin - Locatin the min From Current index in the array
  * @array: The Array to be Searched
@@ -11,19 +10,21 @@
 
 int getMin(int *array, int index, size_t size)
 {
-	int min, idx_min;
-	int i;
+	int min, idx_min, idx;
 
 	min = array[index];
 	idx_min = index;
-	for (i = index; i < (int)size; i++)
+	for (idx = index; idx < (int)size; idx++)
 	{
-		if (array[i] < min)
+		if (array[idx] < min)
 		{
-			min = array[i];
-			idx_min = i;
+			min = array[idx];
+			idx_min = idx;
 		}
 	}
 	if (idx_min == index)
-		return (-1);
+	{
+		return (-2);
+	}
 	return (idx_min);
+}
