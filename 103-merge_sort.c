@@ -33,7 +33,7 @@ void sub_merg(int *subarr, int *b, size_t frnt, size_t center,
 {
 	size_t idx, m;
 	size_t k;
-	
+
 	k = 0;
 	printf("Merging...\n[left]: ");
 	print_array(subarr + frnt, center - frnt);
