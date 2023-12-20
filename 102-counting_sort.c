@@ -11,13 +11,13 @@ int getMax(int *array, size_t size)
 	int mx;
 	size_t idx;
 
-    mx = array[0];
-    idx = 1;
+	mx = array[0];
+	idx = 1;
 	while (idx < size)
 	{
 		if (array[idx] > mx)
 			mx = array[idx];
-        idx++;
+		idx++;
 	}
 
 	return (mx);
