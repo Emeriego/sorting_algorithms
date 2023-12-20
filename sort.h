@@ -29,7 +29,7 @@ int getMin(int *array, int index, size_t size);
 void exchng(int *a, int *b);
 int partArray(int *array, int low, int high, size_t size);
 size_t getListLen(listint_t *list);
-int getMax(int *array, int size);
+int getMax(int *array, size_t size);
 void stupif(int *array, int heap, int idx, int size);
 void lsd(int *array, size_t size, size_t lsd);
 
