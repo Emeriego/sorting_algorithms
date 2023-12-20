@@ -9,22 +9,22 @@
 void stupif(int *array, int heap, int idx, int size)
 {
 	int lar = idx;
-    int left;
-    int right, tud;
+	int left;
+	int right, tud;
 
-    left = 2 * idx + 1;
-    right = 2 * idx + 2;
+	left = 2 * idx + 1;
+	right = 2 * idx + 2;
 	if (left < heap && array[left] > array[lar])
-    {
-        lar = left;
-    }
+	{
+		lar = left;
+	}
 	if (right < heap && array[right] > array[lar])
 		lar = right;
 	if (lar != idx)
 	{
 		tud = array[idx];
-        array[idx] = array[lar];
-        array[lar] = tud;
+		array[idx] = array[lar];
+		array[lar] = tud;
 		print_array(array, size);
 		stupif(array, heap, lar, size);
 	}
@@ -39,7 +39,7 @@ void stupif(int *array, int heap, int idx, int size)
 void heap_sort(int *array, size_t size)
 {
 	int i, tp;
-	
+
 	i = size / 2 - 1;
 	if (!array || size < 2)
 		return;
