@@ -34,7 +34,10 @@ void stupif(int *array, int heap, int idx, int size);
 void lsd(int *array, size_t size, size_t lsd);
 
 
-
+void sub_merg(int *subarr, int *buff, size_t frnt, size_t center,
+		size_t bck);
+void merge_sort_recursive(int *subarr, int *buff, size_t frnt, size_t bck);
+void merge_sort(int *array, size_t size);
 
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
