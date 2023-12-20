@@ -23,7 +23,7 @@ void heap_sort(int *array, size_t size)
 		array[0] = array[i];
 		array[i] = tp;
 		if (i > 0)
-			prntArray(array, size);
+			print_array(array, size);
 		stupif(array, i, 0, size);
 	}
 

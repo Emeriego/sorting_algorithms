@@ -20,7 +20,7 @@ void radix_sort(int *array, size_t size)
 
 	for (lsd = 1; max / lsd > 0; lsd *= 10)
 	{
-		count_sort_LSD(array, size, lsd);
+		lsd(array, size, lsd);
 		print_array(array, size);
 	}
 }

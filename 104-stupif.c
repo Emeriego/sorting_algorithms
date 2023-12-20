@@ -25,7 +25,7 @@ void stupif(int *array, int heap, int idx, int size)
 		tud = array[idx];
         array[idx] = array[lar];
         array[lar] = tud;
-		prntArray(array, size);
+		print_array(array, size);
 		stupif(array, heap, lar, size);
 	}
 }

@@ -21,7 +21,7 @@ void insertion_sort_list(listint_t **list)
 		while (prev && prev->n > dat)
 		{
 			interChng(prev, head, list);
-			prntList(*list);
+			print_list(*list);
 			prev = head->prev;
 		}
 		head = head->next;

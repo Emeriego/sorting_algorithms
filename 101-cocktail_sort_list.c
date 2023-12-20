@@ -48,7 +48,7 @@ void cocktail_sort_list(listint_t **list)
 			{
 				sorted = 0;
 				swapNodes(list, &ptr);
-				prntList(*list);
+				print_list(*list);
 			}
 			else
 			{
@@ -65,7 +65,7 @@ void cocktail_sort_list(listint_t **list)
 				sorted = 0;
 				ptr = ptr->prev;
 				swapNodes(list, &ptr);
-				prntList(*list);
+				print_list(*list);
 			}
 			else
 				ptr = ptr->prev;

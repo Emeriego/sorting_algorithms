@@ -21,7 +21,7 @@ int partArray(int *array, int low, int high, size_t size)
 			if (ct != y)
 			{
 				exchng(&array[ct], &array[y]);
-				prntArray(array, size);
+				print_array(array, size);
 			}
 		}
 	}

@@ -19,10 +19,10 @@ void sub_merg(int *subarr, int *buff, size_t frnt, size_t center,
 	size_t idx, j, k = 0;
 
 	printf("Merging...\n[left]: ");
-	prntArray(subarr + frnt, center - frnt);
+	print_array(subarr + frnt, center - frnt);
 
 	printf("[right]: ");
-	prntArray(subarr + center, bck - center);
+	print_array(subarr + center, bck - center);
 
 	for (idx = frnt, j = center; idx < center && j < bck; k++)
 		buff[k] = (subarr[idx] < subarr[j]) ? subarr[idx++] : subarr[j++];
@@ -34,7 +34,7 @@ void sub_merg(int *subarr, int *buff, size_t frnt, size_t center,
 		subarr[idx] = buff[k++];
 
 	printf("[Done]: ");
-	prntArray(subarr + frnt, bck - frnt);
+	print_array(subarr + frnt, bck - frnt);
 }
 
 /**

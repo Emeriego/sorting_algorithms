@@ -21,8 +21,8 @@ typedef struct listint_s
 } listint_t;
 
 
-void prntArray(const int *array, size_t size);
-void prntList(const listint_t *list);
+void print_array(const int *array, size_t size);
+void print_list(const listint_t *list);
 
 void interChng(listint_t *a, listint_t *b, listint_t **head);
 int getMin(int *array, int index, size_t size);
