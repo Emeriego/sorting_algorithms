@@ -10,19 +10,20 @@
 int partArray(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
-	int x = low - 1, y;
+	int ct, y;
 
+	ct = low - 1;
 	for (y = low; y <= high; y++)
 	{
 		if (array[y] <= pivot)
 		{
-			x++;
-			if (x != y)
+			ct++;
+			if (ct != y)
 			{
-				exchng(&array[x], &array[y]);
+				exchng(&array[ct], &array[y]);
 				prntArray(array, size);
 			}
 		}
 	}
-	return (x);
+	return (ct);
 }

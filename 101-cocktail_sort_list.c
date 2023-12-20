@@ -34,7 +34,7 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *ptr;
 	int sorted = 0;
 
-	if (list == NULL || *list == NULL || list_len(*list) < 2)
+	if (list == NULL || *list == NULL || getListLen(*list) < 2)
 	{
 		return;
 	}
