@@ -21,3 +21,15 @@ int getMax(int *array, int size)
 
 	return (mx);
 }
+int largest(int *array, size_t size)
+{
+	size_t aii;
+	int largest = array[0];
+
+	for (aii = 1; aii < size; aii++)
+	{
+		if (array[aii] > largest)
+			largest = array[aii];
+	}
+	return (largest);
+}

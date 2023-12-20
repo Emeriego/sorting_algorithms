@@ -6,9 +6,10 @@
  *
  * Return: returns max int in an array.
  */
-int getMax(int *array, int size)
+int getMax(int *array, size_t size)
 {
-	int mx, idx;
+	int mx;
+	size_t idx;
 
     mx = array[0];
     idx = 1;
