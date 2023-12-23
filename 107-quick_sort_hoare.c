@@ -1,13 +1,13 @@
 #include "sort.h"
 
-void qsort_it(int *array, int low, int high, size_t size);
+void qsort_it(int *array, int lw, int hi, size_t size);
 void swap_it(int *a, int *b);
-int part_it(int *array, int low, int high, size_t size);
+int part_it(int *array, int lw, int hi, size_t size);
 /**
- * quick_sort_hoare - Quick Sort Algorithme using hoare part_it
- * @array: Array to sort
- * @size: Size of The Array
- * Return: Sorted Array (void)
+ * quick_sort_hoare - Quick Sort Algorithm using partition
+ * @array: Array to be sorted
+ * @size: Size of array
+ * Return: returns sorted Array
  */
 void quick_sort_hoare(int *array, size_t size)
 {
@@ -17,17 +17,17 @@ void quick_sort_hoare(int *array, size_t size)
 }
 
 /**
- * part_it - part_it an array and using piv
- * @array: Array
- * @low: int
- * @high: int
+ * part_it - uses pivots to partition an array
+ * @array: The Array
+ * @lw: the lowest int
+ * @hi: int highest
  * @size: size of array (size_t)
- * Return: index of pivote (int)
+ * Return: returns index of pivot
  */
-int part_it(int *array, int low, int high, size_t size)
+int part_it(int *array, int lw, int hi, size_t size)
 {
-	int piv = array[high];
-	int i = low, j = high;
+	int piv = array[hi];
+	int i = lw, j = hi;
 
 	while (1)
 	{
@@ -40,8 +40,8 @@ int part_it(int *array, int low, int high, size_t size)
 		{
 			swap_it(&array[i], &array[j]);
 			print_array(array, size);
-			i++;
-			j--;
+			j++;
+			i--;
 		}
 		else
 		{
@@ -52,29 +52,28 @@ int part_it(int *array, int low, int high, size_t size)
 	}
 }
 /**
- * qsort_it - Sorting Recursively an Array
+ * qsort_it - Sorts Recursively
  * @array: Array to be sorted
- * @low: The lowest value of the array
- * @high: highest value of the array
+ * @lw: The lowest item
+ * @hi: highest item
  * @size: Size of The Array
- * Return: void
  */
-void qsort_it(int *array, int low, int high, size_t size)
+void qsort_it(int *array, int lw, int hi, size_t size)
 {
 	int i;
 
-	if (low < high)
+	if (lw < hi)
 	{
-		i = part_it(array, low, high, size);
-		if (i > low)
-			qsort_it(array, low, i, size);
-		qsort_it(array, i + 1, high, size);
+		i = part_it(array, lw, hi, size);
+		if (i > lw)
+			qsort_it(array, lw, i, size);
+		qsort_it(array, i + 1, hi, size);
 	}
 }
 /**
- * swap_it - swap_it two int
- * @a: int
- * @b: int
+ * swap_it - swaps two items in an array
+ * @a: int 1
+ * @b: int 2
  * Return: (void) Swaped int
  */
 void swap_it(int *a, int *b)
@@ -85,5 +84,3 @@ void swap_it(int *a, int *b)
 	*a = *b;
 	*b = tmp;
 }
-
-
