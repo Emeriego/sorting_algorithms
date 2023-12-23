@@ -3,18 +3,6 @@
 void mergit(int *array, int low, int count, int dir, size_t size);
 void swapIt(int *lft, int *rght);
 void sortit(int *array, int low, int count, int dir, size_t size);
-/**
-* bitonic_sort - Sorts array using bitonic algorithm
-* @array: Array to sort
-* @size: Size of array
-*/
-
-void bitonic_sort(int *array, size_t size)
-{
-	if (array == NULL || size < 2)
-		return;
-	sortit(array, 0, size, 1, size);
-}
 
 /**
 * sortit - bitonic recursive sort
@@ -89,4 +77,16 @@ void mergit(int *array, int low, int count, int dir, size_t size)
 		mergit(array, low, n, dir, size);
 		mergit(array, low + n, n, dir, size);
 	}
+}
+/**
+* bitonic_sort - Sorts array using bitonic algorithm
+* @array: Array to sort
+* @size: Size of array
+*/
+
+void bitonic_sort(int *array, size_t size)
+{
+	if (array == NULL || size < 2)
+		return;
+	sortit(array, 0, size, 1, size);
 }

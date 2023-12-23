@@ -1,15 +1,15 @@
 #include "sort.hy"
 #include "deck.hy"
 
-void sawp_it(deck_node_t **deck, deck_node_t *node);
+void swap_it(deck_node_t **deck, deck_node_t *node);
 size_t d_len(const deck_node_t *hy);
 int card2int(deck_node_t *node);
 /**
- * sawp_it - swaps adjacent nodes
+ * swap_it - swaps adjacent nodes
  * @deck: ptr of pointer to head
  * @node: node to swap
  */
-void sawp_it(deck_node_t **deck, deck_node_t *node)
+void swap_it(deck_node_t **deck, deck_node_t *node)
 {
 	node->next->prev = node->prev;
 	if (node->prev)
@@ -85,7 +85,7 @@ void sort_deck(deck_node_t **deck)
 			b = card2int(tmp->next);
 			if (b < a)
 			{
-				sawp_it(deck, tmp);
+				swap_it(deck, tmp);
 				swpd = 1;
 			}
 			else
@@ -100,7 +100,7 @@ void sort_deck(deck_node_t **deck)
 			b = card2int(tmp->prev);
 			if (b > a)
 			{
-				sawp_it(deck, tmp->prev);
+				swap_it(deck, tmp->prev);
 				swpd = 1;
 			}
 			else

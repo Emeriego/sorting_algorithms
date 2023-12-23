@@ -3,18 +3,7 @@
 void qsort_it(int *array, int lw, int hi, size_t size);
 void swap_it(int *a, int *b);
 int part_it(int *array, int lw, int hi, size_t size);
-/**
- * quick_sort_hoare - Quick Sort Algorithm using partition
- * @array: Array to be sorted
- * @size: Size of array
- * Return: returns sorted Array
- */
-void quick_sort_hoare(int *array, size_t size)
-{
-	if (array == NULL || size < 2)
-		return;
-	qsort_it(array, 0, size - 1, size);
-}
+
 
 /**
  * part_it - uses pivots to partition an array
@@ -83,4 +72,16 @@ void swap_it(int *a, int *b)
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
+}
+/**
+ * quick_sort_hoare - Quick Sort Algorithm using partition
+ * @array: Array to be sorted
+ * @size: Size of array
+ * Return: returns sorted Array
+ */
+void quick_sort_hoare(int *array, size_t size)
+{
+	if (array == NULL || size < 2)
+		return;
+	qsort_it(array, 0, size - 1, size);
 }
