@@ -1,60 +1,97 @@
 #include "sort.h"
+
 /**
- * lsd - count sort with LSD
- * @array: array to sort
- * @size: size of the array
- * @lsd: least significant digit
+ * largest - Find the largest number in an array.
+ * @array: An array of integers.
+ * @size: The size of the array.
+ * Return: The largest number in the array.
  */
-void lsd(int *array, size_t size, size_t lsd)
+
+int largest(int *array, size_t size)
 {
-	int c_arr[10];
-	int *out;
-	int ls, ms;
-	size_t kns, num;
+	size_t aii;
+	int largest = array[0];
 
-	c_arr = {0};
-	num = 0;
-	out = malloc(sizeof(int) * size);
-	for (kns = 0; kns < size; kns++)
-		c_arr[(array[kns] / lsd) % 10]++;
-	for (ls = 1; ls < 10; ls++)
-		c_arr[ls] += c_arr[ls - 1];
-
-	for (ms = size - 1; ms >= 0; ms--)
+	for (aii = 1; aii < size; aii++)
 	{
-		out[c_arr[(array[ms] / lsd) % 10] - 1] = array[ms];
-		c_arr[(array[ms] / lsd) % 10]--;
+		if (array[aii] > largest)
+		{
+			largest = array[aii];
+		}
 	}
-
-	while (num < size)
-	{
-		array[num] = out[num];
-		num++;
-	}
-	free(out);
+	return (largest);
 }
 
+
 /**
- * radix_sort - sorts an array following the Radix sort algorithm
- * @array: array of ints to sort
- * @size: size of the array
+ * digit - Get the digit at a specified place in a number.
+ * @num: An integer.
+ * @place: The place of the digit.
+ * Return: The digit at the specified place.
  */
+
+int digit(int num, int place)
+{
+
+	if (place > num)
+	{
+		return (0);
+	}
+
+	place = place * 10;
+	return ((num % place) / (place / 10));
+
+
+}
+
+
+/**
+ * radix_sort - Sort an array of integers using
+ * the radix sort algorithm.
+ * @array: An array of integers to be sorted.
+ * @size: The size of the array.
+ * Return: void
+ */
+
 void radix_sort(int *array, size_t size)
 {
-	int max;
-	size_t i, lsd;
+	int *counter, *fresh;
+	size_t aii, big, pi = 1;
 
-	if (!array || size < 2)
+	if (array == NULL || size < 2)
 		return;
 
-	max = 0;
-	for (i = 0; i < size; i++)
-		if (array[i] > max)
-			max = array[i];
+	big = largest(array, size);
 
-	for (lsd = 1; max / lsd > 0; lsd *= 10)
+	counter = malloc((sizeof(int) * 10));
+	if (counter == NULL)
+		return;
+	fresh = malloc(size * sizeof(int));
+
+	while (pi <= big)
 	{
-		lsd(array, size, lsd);
+		for (aii = 0; aii < 10; aii++)
+			counter[aii] = 0;
+
+		for (aii = 0; aii < size; aii++)
+		{
+			counter[digit(array[aii], pi)]++;
+		}
+		for (aii = 1; aii < 10; aii++)
+			counter[aii] = counter[aii] + counter[aii - 1];
+
+		for (aii = (size); aii > 0; aii--)
+		{
+			fresh[counter[digit(array[aii - 1], pi)] - 1] = array[aii - 1];
+			counter[digit(array[aii - 1], pi)]--;
+		}
+		for (aii = 0; aii < size; aii++)
+		{
+			array[aii] = fresh[aii];
+		}
+		pi = pi * 10;
 		print_array(array, size);
 	}
+	free(fresh);
+	free(counter);
 }
